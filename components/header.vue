@@ -4,7 +4,7 @@ import type { NavigationMenuItem } from '@nuxt/ui'
 const items = ref<NavigationMenuItem[]>([
   {
     label: 'Dashboard',
-    icon: 'i-lucide-book-open',
+    icon: 'i-lucide-user-round',
     to: '/',
   },
   {
@@ -14,7 +14,7 @@ const items = ref<NavigationMenuItem[]>([
   },
   {
     label: 'Smoelenboek',
-    icon: 'i-lucide-box',
+    icon: 'i-lucide-book-open',
     to: '/smoelenboek',
   },
 ])
