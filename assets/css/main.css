@@ -1,11 +1,16 @@
 @import "tailwindcss";
 @import "@nuxt/ui";
+@theme static{
+    --color-info: #FF2364
+}
 
 .topbar{
     background-color: #FF2364;
-    color: white;
     margin-bottom: 80px;
     height: 60px;
+}
+.topbar__text{
+    color: black;
 }
 .timeline{
     color: #FF2364;
@@ -40,6 +45,14 @@ max-width: 33em;
     :hover{
         opacity: 25%;
     }
+  
+}
+.person__picture_text{
+    display: none;
+    justify-self: center;
+}
+.person__picture:hover .person__picture_text{
+    display: block;
 }
 .person__header{
     -webkit-font-smoothing: antialiased;
@@ -108,7 +121,6 @@ max-width: 33em;
     height: auto;
     max-width: 100%;
     width: 100%;
-
 }
 .person__title{
     -webkit-font-smoothing: antialiased;
