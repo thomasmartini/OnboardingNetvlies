@@ -11,10 +11,16 @@ export default defineNuxtConfig({
   ],
   mongoose: {
     uri: process.env.MONGODB_URI,
+      devtools: true,
     options: {},
     modelsDir: 'models',
-    devtools: true,
   },
   css: ['~/assets/css/main.css'],
-  
+ vite: {
+    server: {
+        hmr: {
+            clientPort: 3000
+        }
+    }
+},
 })

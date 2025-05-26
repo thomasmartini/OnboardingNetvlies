@@ -1,3 +1,15 @@
+<script setup lang="ts">
+definePageMeta({
+  middleware: ['authenticated'],
+})
+  
+const { user, clear: clearSession } = useUserSession()
+
+async function logout() {
+  await clearSession()
+  await navigateTo('/login')
+}
+</script>
 <template>
     <section class="person-overview">
         <div class="person-overview__list"><div class="person-overview__item person-overview__item--1 person-overview__item--first">
@@ -13,8 +25,9 @@
                     <source srcset="https://www.netvlies.nl/sites/default/files/styles/twig_image_portrait_150_210/public/images/medewerkers/Bart%20van%20Oosterbosch.png?itok=aWvBbmi4 1x" media="(min-width: 0)" type="image/jpeg" width="150" height="210">
         
         
-                            
+                    <div class="person__picture_text">hier staat een leuk feitje</div>
         <img src="https://www.netvlies.nl/sites/default/files/styles/thumbnail/public/images/medewerkers/Bart%20van%20Oosterbosch.png?itok=r1DdMPTX" alt="Bart van Oosterbosch" class="person__img" loading="lazy">
+       
     </picture>
 <header class="person__header">
         <h2 class="person__title">Bart van Oosterbosch</h2>
