@@ -1,6 +1,7 @@
 export default defineEventHandler(async (event) => {
 const body = await readBody (event)
-console.log(event)
+const hashedpassword = await hashPassword(body.password)
+body.password = hashedpassword
 const user = await User.create(body)
 return user.toObject()
 })

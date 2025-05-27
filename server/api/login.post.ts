@@ -8,7 +8,7 @@ export default defineEventHandler(async (event) => {
   const { email, password } = await readValidatedBody(event, bodySchema.parse)
   const response = await fetch(`http://localhost:3000/api/users/${email}`)
   const data = await response.json()
-  if (email === data.email && password === data.password) {
+  if (email === data.email && await verifyPassword(data.password, password)) {
     // set the user session in the cookie
     // this server util is auto-imported by the auth-utils module
     await setUserSession(event, {
