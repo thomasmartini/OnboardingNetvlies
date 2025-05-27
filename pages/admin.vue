@@ -2,6 +2,7 @@
 definePageMeta({
   middleware: ['authenticated-admin'],
 })
+const { data } = await useFetch('http://localhost:3000/api/users')
 const { user, clear: clearSession } = useUserSession()
 async function logout() {
   await clearSession()
@@ -18,11 +19,11 @@ async function logout() {
       <div class="mr-5">Role:</div>
       </div>
     </div>
-    <div class="outline h-8 ml-10 mr-10 flex items-center justify-between">
-      <div class="ml-5">{{ user.name }}</div>
+    <div v-for="person of data" class="outline h-8 ml-10 mr-10 flex items-center justify-between">
+      <div class="ml-5">{{ person.name }}</div>
       <div class="flex">
       <div class="mr-5">{{Math.ceil(Math.random() * 10)}}/10</div>
-      <div class="mr-5">{{ user.role }}</div>
+      <div class="mr-5">{{ person.role }}</div>
       </div>
     </div>
 </template>
