@@ -9,6 +9,20 @@ async function logout() {
 }
 </script>
 <template>
-    <span>Welcome Admin: {{ user.name }}</span><br>
+    <div>Welcome Admin: {{ user.name }}</div>
     <button @click="logout()">logout</button>
+    <div class="outline h-8 ml-10 mr-10 mt-5 flex items-center justify-between">
+      <div class="ml-5">User:</div>
+      <div class="flex">
+      <div class="mr-5">Progress:</div>
+      <div class="mr-5">Role:</div>
+      </div>
+    </div>
+    <div class="outline h-8 ml-10 mr-10 flex items-center justify-between">
+      <div class="ml-5">{{ user.name }}</div>
+      <div class="flex">
+      <div class="mr-5">{{Math.ceil(Math.random() * 10)}}/10</div>
+      <div class="mr-5">{{ user.role }}</div>
+      </div>
+    </div>
 </template>
