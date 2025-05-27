@@ -1,5 +1,5 @@
-export default defineEventHandler(async (event) => {
+export default defineEventHandler({
 handler: async() => {
     return User.find()
-}
-  });
+  }
+});

@@ -8,7 +8,17 @@ export const User = defineMongooseModel({
       required: true,
       unique: true,
     },
+    password:{
+      type: 'string',
+      required: true,
+      minlength: 8,
+
+    },
     name:{
+      type: 'string',
+      required: true
+    },
+    role: {
       type: 'string',
       required: true
     }
