@@ -21,6 +21,12 @@ export const User = defineMongooseModel({
     role: {
       type: 'string',
       required: true
+    },
+    progress: {
+      type: "number",
+      default: 0,
+      required: false,
+      
     }
   },
   options: {

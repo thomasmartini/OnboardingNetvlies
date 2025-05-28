@@ -2,23 +2,71 @@
 definePageMeta({
   middleware: ['authenticated-admin'],
 })
-const { data } = await useFetch('http://localhost:3000/api/users')
+import * as z from 'zod'
+import type { FormSubmitEvent } from '@nuxt/ui'
 
+const toast = useToast()
+const { data } = await useFetch('/api/users')
+const items = ref(['user', 'admin'])
 const { user, clear: clearSession } = useUserSession()
-async function logout() {
-  await clearSession()
-  await navigateTo('/login')
-}
+
+const schema = z.object({
+  email: z.string().email('Invalid email'),
+  name: z.string(),
+  role: z.string()
+})
+type Schema = z.output<typeof schema>
+
+const state = reactive<Partial<Schema>>({
+  email: undefined,
+  name: undefined,
+  role: undefined
+})
+
 async function deleteUser(id: string) {
-  await fetch(`http://localhost:3000/api/users/${id}`, {
+  await $fetch(`/api/users/${id}`, {
   method: 'DELETE',
 })
 await refreshNuxtData()
 }
+async function onSubmit(event: FormSubmitEvent<Schema>) {
+   await $fetch('/api/users/', {
+  method: 'POST',
+  body: {
+    "email": event.data.email,
+    "name": event.data.name,
+    "role": event.data.role,
+    "password": event.data.name
+  }
+})
+await refreshNuxtData()
+toast.add({ title: 'Success', description: 'The form has been submitted.', color: 'success' })
+}
 </script>
+
 <template>
     <div>Welcome Admin: {{ user.name }}</div>
-    <button @click="logout()">logout</button>
+    <UModal>
+    <UButton label="Add User" color="neutral" variant="subtle" />
+
+    <template #content>
+    <UForm :schema="schema" :state="state" class="h-60 m-4" @submit="onSubmit">
+    <UFormField label="Email" name="email">
+      <UInput v-model="state.email" />
+    </UFormField>
+
+    <UFormField label="Name" name="Name">
+      <UInput v-model="state.name" />
+    </UFormField>
+    <UFormField label="Role">
+      <UInputMenu v-model="state.role" :items="items" />
+    </UFormField>
+    <UButton type="submit" class="mt-5">
+      Submit
+    </UButton>
+  </UForm>
+    </template>
+  </UModal>
     <div class="outline h-8 ml-10 mr-10 mt-5 flex items-center justify-between">
       <div class="ml-5">User:</div>
       <div class="flex">
