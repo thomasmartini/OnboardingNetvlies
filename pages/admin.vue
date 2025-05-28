@@ -9,7 +9,12 @@ async function logout() {
   await clearSession()
   await navigateTo('/login')
 }
-
+async function deleteUser(id: string) {
+  await fetch(`http://localhost:3000/api/users/${id}`, {
+  method: 'DELETE',
+})
+await refreshNuxtData()
+}
 </script>
 <template>
     <div>Welcome Admin: {{ user.name }}</div>
@@ -22,11 +27,13 @@ async function logout() {
       </div>
     </div>
     <div v-for="person of data" class="outline h-8 ml-10 mr-10 flex items-center justify-between">
-      <div class="ml-5">{{ person.name }}</div>
-      <button @click="">Delete</button>
+      <div class="flex">
+      <div class="ml-5 w-30">{{ person.name }}</div>
+      <button class="btn text-red-500 ml-5" @click="deleteUser(person._id)">Delete</button>
+      </div>
       <div class="flex">
       <div class="mr-5">{{Math.ceil(Math.random() * 10)}}/10</div>
-      <div class="mr-5">{{ person.role }}</div>
+      <div class="mr-5 w-8">{{ person.role }}</div>
       </div>
     </div>
 </template>

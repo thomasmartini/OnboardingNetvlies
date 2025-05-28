@@ -1,7 +1,8 @@
 import { isMongoId } from "../../utils/isMongoId";
 
 export default defineEventHandler (async (event) =>{
-const id = getRouterParam(event, "id");
+const id = getRouterParam(event, "email"); //works if you give it the name email
+//sends id as email param, don't know why. FIX
 if(!id) throw createError({
 statusCode: 404,
 statusMessage: 'Not Found',
