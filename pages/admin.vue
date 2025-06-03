@@ -24,7 +24,7 @@ const state = reactive<Partial<Schema>>({
 })
 
 async function deleteUser(id: string) {
-  await $fetch(`/api/users/${id}`, {
+  await fetch(`/api/users/${id}`, {
   method: 'DELETE',
 })
 await refreshNuxtData()
