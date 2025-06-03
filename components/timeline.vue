@@ -1,10 +1,24 @@
+<!--
+hieronder een voorbeeld van hoe dit component gebruikt kan worden in een .vue bestand
+<Timeline>
+    <template #title>
+      Eerste dag
+    </template>
+    <template #content>
+      klaar voor je eerste dag? lees hier meer
+    </template>
+    <template #link>
+      <a href="http://localhost:3000/onboarding">Door naar de eerste onboarding module</a>
+    </template>
+  </Timeline> 
+  -->
 <template>
 <div class="timeline">
   <div class="container right">
     <div class="content">
       <div class="text-4xl title"><slot name="title"> Roep "template #title" aan in het timeline blokje om dit aan te passen</slot></div>
       <p><slot name="content"> Roep "template #content" aan in het timeline blokje om dit aan te passen</slot></p>
-      <i class="link_timeline"><slot name="link">vul hier een a href met een link in </slot></i>
+      <i class="link_timeline"><slot name="link">vul hier een a href met een link in </slot></i><UIcon name="i-lucide-lightbulb" class="size-5" />
     </div>
   </div>
 </div>
