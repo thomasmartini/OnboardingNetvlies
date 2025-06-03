@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import Timeline from '~/components/timeline.vue'
 definePageMeta({
   layout: 'default',
   middleware: ['authenticated'],
@@ -8,34 +9,35 @@ async function logout() {
   await clearSession()
   await navigateTo('/login')
 }
-import type { StepperItem } from '@nuxt/ui'
-const items = ref<StepperItem[]>([
-  {
-    icon: "https://github.com/benjamincanac.png"
-    
-  },
-  {
-    title: 'Onboarding',
-    description: 'Begin met de eerste stap van het onboarden',
-    icon: 'i-lucide-book-open',
-  },
-  {
-    title: 'Lees het Smoelenboek',
-    description: 'Hier kan je wat meer leren over je nieuwe collegas',
-    icon: 'i-lucide-book-open'
-  },
-  {
-    title: 'Na de werkdag',
-    description: 'Wat doen wij na het werk?',
-    icon: 'i-lucide-beer',
-    
-  },
-])
+
 </script>
 <template>
-  <UContainer class="flex justify-start">
-  <div class="self-center name">{{ user.name }}</div>
-    <UStepper orientation="vertical" size="xl" :items="items" class="w-full justify-start " color="info"/>
-    <button @click="logout()">logout</button>
+  <UContainer>     
+  <div class="grid grid-flow-col grid-rows-2">
+    <div class="name row-span-2 self-center">{{ user.name }}</div>
+    <div class="row-span-2">
+    <div class="profile-pic-wrapper justify-self-center mr-2">
+    <img src="https://www.netvlies.nl/sites/default/files/styles/twig_image_portrait_214_298/public/images/medewerkers/NET-231109-3725.png?itok=dDjE9kIR" class="profile-pic">
+    </div>
+    <div class="h-165 overflow-auto no-scrollbar">
+  <Timeline>
+    <template #title>
+      Eerste dag
+    </template>
+    <template #content>
+      klaar voor je eerste dag? lees hier meer
+    </template>
+    <template #link>
+      <a href="http://localhost:3000/bestanden">link naar bestanden</a>
+    </template>
+  </Timeline>
+  <Timeline></Timeline>
+  <Timeline></Timeline>
+  <Timeline></Timeline>
+  <Timeline></Timeline>
+  <Timeline></Timeline>
+  </div>
+</div>
+</div>
   </UContainer>
   </template>
