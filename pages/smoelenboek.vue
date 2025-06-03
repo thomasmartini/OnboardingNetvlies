@@ -16,6 +16,7 @@ async function logout() {
 
 
 <article class="person">    <picture class="person__picture">
+    
                     <source srcset="https://www.netvlies.nl/sites/default/files/styles/twig_image_portrait_320_445/public/images/medewerkers/Bart%20van%20Oosterbosch.png?itok=phtNWyCw 1x" media="(min-width: 90em)" type="image/jpeg" width="320" height="445">
                     <source srcset="https://www.netvlies.nl/sites/default/files/styles/twig_image_portrait_240_334/public/images/medewerkers/Bart%20van%20Oosterbosch.png?itok=XU5Fp79l 1x" media="(min-width: 80em)" type="image/jpeg" width="240" height="334">
                     <source srcset="https://www.netvlies.nl/sites/default/files/styles/twig_image_portrait_214_298/public/images/medewerkers/Bart%20van%20Oosterbosch.png?itok=7nX4idCj 1x" media="(min-width: 64em)" type="image/jpeg" width="214" height="298">
@@ -25,7 +26,7 @@ async function logout() {
                     <source srcset="https://www.netvlies.nl/sites/default/files/styles/twig_image_portrait_150_210/public/images/medewerkers/Bart%20van%20Oosterbosch.png?itok=aWvBbmi4 1x" media="(min-width: 0)" type="image/jpeg" width="150" height="210">
         
         
-                    <div class="person__picture_text">hier staat een leuk feitje</div>
+                    
         <img src="https://www.netvlies.nl/sites/default/files/styles/thumbnail/public/images/medewerkers/Bart%20van%20Oosterbosch.png?itok=r1DdMPTX" alt="Bart van Oosterbosch" class="person__img" loading="lazy">
        
     </picture>
@@ -51,7 +52,7 @@ async function logout() {
                     <source srcset="https://www.netvlies.nl/sites/default/files/styles/twig_image_portrait_200_280/public/images/medewerkers/NET-231109-3526.png?itok=1el1lL-v 1x" media="(min-width: 22.5em)" type="image/jpeg" width="200" height="280">
                     <source srcset="https://www.netvlies.nl/sites/default/files/styles/twig_image_portrait_150_210/public/images/medewerkers/NET-231109-3526.png?itok=51AEF_WR 1x" media="(min-width: 0)" type="image/jpeg" width="150" height="210">
         
-        
+        <div class="person__picture_text">hier staat een leuk feitje</div>
                             
         <img src="https://www.netvlies.nl/sites/default/files/styles/thumbnail/public/images/medewerkers/NET-231109-3526.png?itok=6iQNtSly" alt="Beerend Lauwers" class="person__img" loading="lazy">
     </picture>

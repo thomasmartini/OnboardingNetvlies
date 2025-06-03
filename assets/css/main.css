@@ -49,6 +49,7 @@ max-width: 33em;
 .person__picture_text{
     display: none;
     justify-self: center;
+    position: absolute;
 }
 .person__picture:hover .person__picture_text{
     display: block;
