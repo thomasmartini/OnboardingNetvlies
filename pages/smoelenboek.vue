@@ -12,7 +12,7 @@ async function logout() {
 </script>
 <template>
     <section class="person-overview">
-        <div class="person-overview__list"><div class="person-overview__item person-overview__item--1 person-overview__item--first">
+        <div class="person-overview__list h-screen overflow-scroll no-scrollbar grid grid-cols-4 gap-6"><div class="person-overview__item person-overview__item--1 person-overview__item--first">
 
 
 <article class="person">    <picture class="person__picture">
