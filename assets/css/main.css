@@ -64,7 +64,7 @@ max-width: 33em;
     font-family: Circular,sans-serif;
     line-height: 1.2666666667;
     box-sizing: inherit;
-    margin-bottom: 1em;
+    margin-bottom: 0.5em;
 }
 .person__content{
     -webkit-font-smoothing: antialiased;
@@ -73,10 +73,10 @@ max-width: 33em;
     font-weight: 200;
     text-decoration-skip-ink: auto;
     font-family: Circular,sans-serif;
-    line-height: 1.2666666667;
+    line-height: 1.0666666667;
     box-sizing: inherit;
     margin-bottom: .5em;
-    font-size: 1.8rem;
+    font-size: 1.2rem;
 }
 .person__actions{
     -webkit-font-smoothing: antialiased;
@@ -87,7 +87,7 @@ max-width: 33em;
     font-family: Circular,sans-serif;
     line-height: 1.2666666667;
     box-sizing: inherit;
-    font-size: 1.8rem;
+    font-size: 1.2rem;
 }
 .person-overview__item{
     -webkit-font-smoothing: antialiased;
@@ -99,7 +99,9 @@ max-width: 33em;
     font-family: Circular,sans-serif;
     line-height: 1.2666666667;
     box-sizing: inherit;
-    margin-top: 3.5em;
+    margin-top: 1.5em;
+    margin-right: 25px;
+    margin-left: 25px;
 }
 .person__img{
     -webkit-font-smoothing: antialiased;
@@ -130,7 +132,7 @@ max-width: 33em;
     color: #ff0953;
     font-weight: 400;
     line-height: 1.5;
-    font-size: 2.3rem;
+    font-size: 1.8rem;
 }
 .link{
     -webkit-font-smoothing: antialiased;
@@ -138,7 +140,7 @@ max-width: 33em;
     text-decoration-skip-ink: auto;
     font-family: Circular,sans-serif;
     line-height: 1.2666666667;
-    font-size: 1.8rem;
+    font-size: 1.2rem;
     box-sizing: inherit;
     background-color: transparent;
     margin: 0;
@@ -191,7 +193,6 @@ max-width: 33em;
     align-items: center; 
     justify-content: center; 
     outline: auto #ff0953;
-    
 } 
 
 .profile-pic { 
