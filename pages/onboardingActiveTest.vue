@@ -1,0 +1,3 @@
+<template>
+    <ActiveOnboarding></ActiveOnboarding>
+</template>
