@@ -5,14 +5,10 @@ definePageMeta({
   
 const { user, clear: clearSession } = useUserSession()
 
-async function logout() {
-  await clearSession()
-  await navigateTo('/login')
-}
 </script>
 <template>
     <section class="person-overview">
-        <div class="person-overview__list h-screen overflow-scroll no-scrollbar grid grid-cols-4 gap-6"><div class="person-overview__item person-overview__item--1 person-overview__item--first">
+        <div class="person-overview__list h-screen overflow-scroll no-scrollbar grid grid-cols-4 gap-6 ml-15 mr-15"><div class="person-overview__item person-overview__item--1 person-overview__item--first">
 
 
 <article class="person">    <picture class="person__picture">

@@ -1,5 +1,5 @@
 <template>
-  <div class="bg-white h-screen">
+  <div class="bg-white h-screen overflow-auto">
     <NuxtRouteAnnouncer />
     <UApp>
       <NuxtLayout>

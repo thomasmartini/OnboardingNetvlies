@@ -26,6 +26,6 @@ async function login() {
   <form @submit.prevent="login" class="justify-self-center block">
     <div><input v-model="credentials.email" type="email" placeholder="Email" class="outline mb-2" /></div>
   <div><input v-model="credentials.password" type="password" placeholder="Password"class="outline" /></div>
-    <button type="submit">Login</button>
+    <UButton type="submit" class="mt-2">Login</UButton>
   </form>
 </template>
