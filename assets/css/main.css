@@ -210,3 +210,6 @@ max-width: 33em;
     -ms-overflow-style: none;  /* IE and Edge */
     scrollbar-width: none;  /* Firefox */
 }
+body{
+    color: #333244;
+}
