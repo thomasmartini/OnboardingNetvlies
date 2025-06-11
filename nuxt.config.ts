@@ -8,6 +8,7 @@ export default defineNuxtConfig({
     '@nuxt/content',
     'nuxt-auth-utils',
     'nuxt-mongoose',
+    'nuxt-file-storage',
   ],
   mongoose: {
     uri: process.env.MONGODB_URI,
@@ -16,11 +17,4 @@ export default defineNuxtConfig({
     modelsDir: 'models',
   },
   css: ['~/assets/css/main.css'],
- vite: {
-    server: {
-        hmr: {
-            clientPort: 3000
-        }
-    }
-},
 })
