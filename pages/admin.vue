@@ -9,7 +9,18 @@ const toast = useToast()
 const { data } = await useFetch('/api/users')
 const items = ref(['user', 'admin'])
 const { user, clear: clearSession } = useUserSession()
+const { handleFileInput, files } = useFileStorage()
 
+const submitFile = async () => {
+  console.log(files.value[0])
+    await $fetch('/api/files', {
+        method: 'POST',
+        body: {
+            files: files.value[0]
+        }
+    })
+    
+}
 const schema = z.object({
   email: z.string().email('Invalid email'),
   name: z.string(),
@@ -67,6 +78,8 @@ toast.add({ title: 'Success', description: 'The form has been submitted.', color
   </UForm>
     </template>
   </UModal>
+    <input type="file" @input="handleFileInput" />
+    <button @click="submitFile">submit</button>
     <div class="outline h-8 ml-10 mr-10 mt-5 flex items-center justify-between">
       <div class="ml-5">User:</div>
       <div class="flex">
