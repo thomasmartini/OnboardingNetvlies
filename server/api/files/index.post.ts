@@ -2,7 +2,7 @@ import { ServerFile } from "nuxt-file-storage";
 
 export default defineEventHandler(async (event) => {
     const { files } = await readBody<{ files: ServerFile[] }>(event)
-    console.log('hallo')
+
     for ( const file of files ) {
         await storeFileLocally(
             file,         // the file object
