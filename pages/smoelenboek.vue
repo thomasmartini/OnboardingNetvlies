@@ -63,6 +63,10 @@ function editJson(){
 	</a>
 </footer></article>
 </div>
+<<<<<<< HEAD
           </div>
+=======
+      </div>     
+>>>>>>> bfefd0fc6f0767a153356fcde313a7bf8b80bed2
     </section>
 </template>

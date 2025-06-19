@@ -11,15 +11,14 @@ const items = ref(['user', 'admin'])
 const { user, clear: clearSession } = useUserSession()
 const { handleFileInput, files } = useFileStorage()
 
-const submitFile = async () => {
-  console.log(files.value[0])
-    await $fetch('/api/files', {
+const submitFiles = async () => {
+    const response = await $fetch('/api/files', {
         method: 'POST',
         body: {
-            files: files.value[0]
+            files: files.value
         }
     })
-    
+    console.log(response)
 }
 
 const schema = z.object({
@@ -41,7 +40,9 @@ async function deleteUser(id: string) {
 })
 await refreshNuxtData()
 }
+
 async function onSubmit(event: FormSubmitEvent<Schema>) {
+  submitFiles()
    await $fetch('/api/users/', {
   method: 'POST',
   body: {
@@ -62,7 +63,7 @@ toast.add({ title: 'Success', description: 'The form has been submitted.', color
     <UButton label="Add User" color="neutral" variant="subtle" />
 
     <template #content>
-    <UForm :schema="schema" :state="state" class="h-60 m-4" @submit="onSubmit">
+    <UForm :schema="schema" :state="state" class="h-80 m-4" @submit="onSubmit">
     <UFormField label="Email" name="email">
       <UInput v-model="state.email" />
     </UFormField>
@@ -73,14 +74,14 @@ toast.add({ title: 'Success', description: 'The form has been submitted.', color
     <UFormField label="Role">
       <UInputMenu v-model="state.role" :items="items" />
     </UFormField>
+    <UInput type="file" @input="handleFileInput" class="mt-5"/><br>
     <UButton type="submit" class="mt-5">
       Submit
     </UButton>
   </UForm>
     </template>
   </UModal>
-    <input type="file" @input="handleFileInput" />
-    <button @click="submitFile">submit</button>
+    
     <div class="outline h-8 ml-10 mr-10 mt-5 flex items-center justify-between">
       <div class="ml-5">User:</div>
       <div class="flex">

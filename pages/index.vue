@@ -14,7 +14,7 @@ const { user, clear: clearSession } = useUserSession()
     <div class="profile-pic-wrapper justify-self-center mr-1.5">
     <img src="https://www.netvlies.nl/sites/default/files/styles/twig_image_portrait_240_334/public/images/medewerkers/Pierre%20no%20bg_0.png?itok=SyBdDI2i" class="profile-pic">
     </div>
-    <div class="h-screen overflow-auto no-scrollbar">
+    <div class="h-[70vh] overflow-auto no-scrollbar">
   <Timeline>
     <template #title>
       Eerste dag
@@ -23,12 +23,16 @@ const { user, clear: clearSession } = useUserSession()
       klaar voor je eerste dag? lees hier meer
     </template>
     <template #link>
-      <a href="http://localhost:3000/onboarding">Door naar de eerste onboarding module</a>
+      <a href="/onboarding">Door naar de eerste onboarding module</a>
     </template>
   </Timeline>
   <Timeline>
+<<<<<<< HEAD
     <template #link><a href="http://localhost:3000/onboardingActiveTest">onboarding 2 test</a></template>
     <template #title>Tweede onboarding</template>
+=======
+    <template #link><a href="/onboardingActiveTest">onboarding 2 test</a></template>
+>>>>>>> bfefd0fc6f0767a153356fcde313a7bf8b80bed2
   </Timeline>
   <Timeline></Timeline>
   <Timeline></Timeline>
@@ -37,6 +41,7 @@ const { user, clear: clearSession } = useUserSession()
   </Timeline>
   <Timeline>
     <template #title>
+<<<<<<< HEAD
       haal je sleutel op
     </template>
     <template #content>
@@ -44,6 +49,15 @@ const { user, clear: clearSession } = useUserSession()
     </template>
     <template #link>
       <a href="/sleutel">Door naar de eerste onboarding module</a>
+=======
+      Je eerste blik
+    </template>
+    <template #content>
+      klaar voor je eerste inzichten! Vernieuw je visie
+    </template>
+    <template #link>
+      <a href="/spongebob">Door naar de eerste onboarding module</a>
+>>>>>>> bfefd0fc6f0767a153356fcde313a7bf8b80bed2
     </template>
   </Timeline> 
   </div>

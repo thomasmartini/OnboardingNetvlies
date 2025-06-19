@@ -17,4 +17,8 @@ export default defineNuxtConfig({
     modelsDir: 'models',
   },
   css: ['~/assets/css/main.css'],
+   fileStorage: {
+        // enter the absolute path to the location of your storage
+        mount: process.env.mount,
+   },
 })
