@@ -28,12 +28,24 @@ const { user, clear: clearSession } = useUserSession()
   </Timeline>
   <Timeline>
     <template #link><a href="http://localhost:3000/onboardingActiveTest">onboarding 2 test</a></template>
+    <template #title>Tweede onboarding</template>
   </Timeline>
   <Timeline></Timeline>
   <Timeline></Timeline>
   <Timeline>
     <template #title>nieuwe title</template>
   </Timeline>
+  <Timeline>
+    <template #title>
+      haal je sleutel op
+    </template>
+    <template #content>
+      je sleutel kan je ophalen
+    </template>
+    <template #link>
+      <a href="/sleutel">Door naar de eerste onboarding module</a>
+    </template>
+  </Timeline> 
   </div>
 </div>
 </div>

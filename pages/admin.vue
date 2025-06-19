@@ -21,6 +21,7 @@ const submitFile = async () => {
     })
     
 }
+
 const schema = z.object({
   email: z.string().email('Invalid email'),
   name: z.string(),
