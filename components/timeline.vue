@@ -13,7 +13,7 @@ hieronder een voorbeeld van hoe dit component gebruikt kan worden in een .vue be
   </Timeline> 
   -->
 <template>
-<div class="timeline">
+<div class="timeline font-[family-name:circular]">
   <div class="container right">
     <div class="content">
       <div class="text-4xl title"><slot name="title"> Roep "template #title" aan in het timeline blokje om dit aan te passen</slot></div>

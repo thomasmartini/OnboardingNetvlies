@@ -4,7 +4,6 @@ definePageMeta({
 })
 import * as dataJSON from '../assets/smoelenboekUsers/smoelen.json'
 const { user, clear: clearSession } = useUserSession()
-import fs from 'fs'
 
 let data = dataJSON
 function editJson(){
@@ -23,7 +22,7 @@ function editJson(){
       "https://www.netvlies.nl/sites/default/files/styles/twig_image_portrait_200_280/public/images/medewerkers/tomas%20van%20den%20nieuwendijk.png?itok=sIvB7W_l",
       "https://www.netvlies.nl/sites/default/files/styles/twig_image_portrait_150_210/public/images/medewerkers/tomas%20van%20den%20nieuwendijk.png?itok=73Fuqnty"
     ],
-    "fun_fact": "Heeft een letterboxd account"
+    "fun_fact": "Schrijft letterboxd reviews die niemand leest"
   }
   getFile.push(newUser)
   data = getFile
@@ -32,7 +31,7 @@ function editJson(){
 </script>
 <template>
     <UButton v-if="user.role == `admin`" @click="editJson" class="ml-5">Add Smoel</UButton>
-    <section class="person-overview">
+    <section class="person-overview font-[family-name:circular]">
         <div class="person-overview__list h-screen overflow-scroll no-scrollbar grid grid-cols-4 gap-6 pl-25 pr-25">
 
     <div v-for="smoel in data.default" class="person-overview__item person-overview__item--1">
@@ -49,7 +48,7 @@ function editJson(){
         <img :src="smoel.photo" :alt="smoel.name" class="person__img" loading="lazy">
         <div class="person__picture_overlay">
         <div class="person__picture_hobby">Hobbies: {{ smoel.name }}</div>
-        <div class="person__picture_fact">Leuk Feitje: {{ smoel.role }}</div>
+        <div class="person__picture_fact">Leuk Feitje: {{ smoel.fun_fact}}</div>
 </div>
     </picture>
 <header class="person__header">
@@ -63,10 +62,6 @@ function editJson(){
 	</a>
 </footer></article>
 </div>
-<<<<<<< HEAD
-          </div>
-=======
       </div>     
->>>>>>> bfefd0fc6f0767a153356fcde313a7bf8b80bed2
     </section>
 </template>

@@ -8,7 +8,7 @@ const { user, clear: clearSession } = useUserSession()
 </script>
 <template>
   <UContainer>     
-  <div class="grid grid-flow-col grid-rows-2">
+  <div class="grid grid-flow-col grid-rows-2 font-[family-name:circular]">
     <div class="name row-span-2 self-center">{{ user.name }}</div>
     <div class="row-span-2 pr-35">
     <div class="profile-pic-wrapper justify-self-center mr-1.5">
@@ -27,12 +27,7 @@ const { user, clear: clearSession } = useUserSession()
     </template>
   </Timeline>
   <Timeline>
-<<<<<<< HEAD
-    <template #link><a href="http://localhost:3000/onboardingActiveTest">onboarding 2 test</a></template>
-    <template #title>Tweede onboarding</template>
-=======
-    <template #link><a href="/onboardingActiveTest">onboarding 2 test</a></template>
->>>>>>> bfefd0fc6f0767a153356fcde313a7bf8b80bed2
+    <template #link><a href="/onboardingactivetest">ga naar actieve onboarding</a></template>
   </Timeline>
   <Timeline></Timeline>
   <Timeline></Timeline>
@@ -41,15 +36,6 @@ const { user, clear: clearSession } = useUserSession()
   </Timeline>
   <Timeline>
     <template #title>
-<<<<<<< HEAD
-      haal je sleutel op
-    </template>
-    <template #content>
-      je sleutel kan je ophalen
-    </template>
-    <template #link>
-      <a href="/sleutel">Door naar de eerste onboarding module</a>
-=======
       Je eerste blik
     </template>
     <template #content>
@@ -57,7 +43,6 @@ const { user, clear: clearSession } = useUserSession()
     </template>
     <template #link>
       <a href="/spongebob">Door naar de eerste onboarding module</a>
->>>>>>> bfefd0fc6f0767a153356fcde313a7bf8b80bed2
     </template>
   </Timeline> 
   </div>
