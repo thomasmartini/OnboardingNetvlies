@@ -9,11 +9,11 @@ input{
 }
 .topbar{
     background-color: #FF2364;
-    margin-bottom: 80px;
+    margin-bottom: 40px;
     height: 60px;
 }
 .topbar__text{
-    color: black;
+    color: white;
 }
 .person{
 -webkit-font-smoothing: antialiased;
@@ -51,8 +51,6 @@ position: relative;
     height: auto;
     transition: .5s ease;
     backface-visibility: hidden;
-  
-  
 }
 .person__picture_hobby{
   color: white;
@@ -66,7 +64,6 @@ position: relative;
   transform: translate(-50%, -50%);
   text-align: start;
   color: #ff0953;
-  
 }
 .person__picture_fact{
   color: white;
@@ -258,4 +255,7 @@ position: relative;
 }
 body{
     color: #333244;
+}
+.bestand:hover{
+    color: #ff0953;
 }

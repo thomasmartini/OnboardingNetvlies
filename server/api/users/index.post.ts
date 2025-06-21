@@ -15,7 +15,6 @@ const body = await readBody (event)
 const hashedpassword = await hashPassword(body.password)
 body.password = hashedpassword
 body.name = titleCase(body.name)
-console.log(body.name)
 const user = await User.create(body)
 return user.toObject()
 })

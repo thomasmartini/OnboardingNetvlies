@@ -14,7 +14,7 @@ const { user, clear: clearSession } = useUserSession()
     <div class="profile-pic-wrapper justify-self-center mr-1.5">
     <img src="https://www.netvlies.nl/sites/default/files/styles/twig_image_portrait_240_334/public/images/medewerkers/Pierre%20no%20bg_0.png?itok=SyBdDI2i" class="profile-pic">
     </div>
-    <div class="h-[70vh] overflow-auto no-scrollbar">
+    <div class="h-[74vh] overflow-auto no-scrollbar">
   <Timeline>
     <template #title>
       Eerste dag
