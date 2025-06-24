@@ -661,13 +661,6 @@
         ],
         "fun_fact": "",
         "hobbies": ""
-    },
-    {
-        "name": "Thomas Martini",
-        "email": "thomas@netvlies.nl",
-        "role": "Full Stack Developer",
-        "photo": "_nuxt/assets/userFiles/20250415_164308.jpg.jpg",
-        "fun_fact": "Schrijft letterboxd reviews die niemand leest",
-        "hobbies": "films kijken"
     }
+
 ]

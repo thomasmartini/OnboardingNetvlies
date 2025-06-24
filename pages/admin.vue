@@ -39,6 +39,8 @@ async function deleteUser(id: string) {
   method: 'DELETE',
 })
 await refreshNuxtData()
+toast.add({ title: 'Success', description: 'User Deleted', color: 'success' })
+
 }
 
 async function onSubmit(event: FormSubmitEvent<Schema>) {
@@ -49,7 +51,8 @@ async function onSubmit(event: FormSubmitEvent<Schema>) {
     "email": event.data.email,
     "name": event.data.name,
     "role": event.data.role,
-    "password": event.data.name
+    "password": event.data.name,
+    "photo": `_nuxt/assets/userFiles/${files.value[0].name}.jpg`,
   }
 })
 await refreshNuxtData()
@@ -58,7 +61,9 @@ toast.add({ title: 'Success', description: 'The form has been submitted.', color
 </script>
 
 <template>
-    <div>Welcome Admin: {{ user.name }}</div>
+  <div>
+    <div class="ml-10">
+    <div class="mb-10 text-2xl font-[family-circular]">Welcome Admin: {{ user.name }}</div>
     <UModal>
     <UButton label="Add User" color="neutral" variant="subtle" />
 
@@ -74,15 +79,15 @@ toast.add({ title: 'Success', description: 'The form has been submitted.', color
     <UFormField label="Role">
       <UInputMenu v-model="state.role" :items="items" />
     </UFormField>
-    <UInput type="file" @input="handleFileInput" class="mt-5"/><br>
+    <UInput type="file" accept="image/jpeg" @input="handleFileInput" class="mt-5"/><br>
     <UButton type="submit" class="mt-5">
       Submit
     </UButton>
   </UForm>
     </template>
   </UModal>
-    
-    <div class="outline h-8 ml-10 mr-10 mt-5 flex items-center justify-between">
+    </div>
+    <div class="outline h-8 ml-10 mr-10 mt-2 flex items-center justify-between">
       <div class="ml-5">User:</div>
       <div class="flex">
       <div class="mr-5">Progress:</div>
@@ -91,12 +96,23 @@ toast.add({ title: 'Success', description: 'The form has been submitted.', color
     </div>
     <div v-for="person of data" class="outline h-8 ml-10 mr-10 flex items-center justify-between">
       <div class="flex">
-      <div class="ml-5 w-30">{{ person.name }}</div>
-      <button class="btn text-red-500 ml-5" @click="deleteUser(person._id)">Delete</button>
+      <div class="ml-5 w-50">{{ person.name }}</div>
+          <UModal>
+    <button label="delete user" class="text-error">Delete</button>
+    <template #content>
+      <div class="w-full h-30 justify-center flex flex-col items-center">
+        <div class="text-error">Weet je zeker dat je deze gebruiker wilt verwijderen?</div>
+        <div class="flex justify-items-between mt-2">
+        <UButton label="Verwijder" color="error" variant="solid" @click="deleteUser(person._id)"/>
+        </div>
+      </div>
+    </template>
+        </UModal>
       </div>
       <div class="flex">
-      <div class="mr-5">{{Math.ceil(Math.random() * 10)}}/10</div>
+      <div class="mr-11">{{Math.ceil(Math.random() * 10)}}/10</div>
       <div class="mr-5 w-8">{{ person.role }}</div>
       </div>
+    </div>
     </div>
 </template>

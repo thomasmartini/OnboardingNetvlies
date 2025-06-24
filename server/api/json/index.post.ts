@@ -7,7 +7,7 @@ fs.writeFile('./assets/smoelenboekUsers/smoelen2.json', JSON.stringify(content, 
   if (err) {
     console.error(err);
   } else {
-    console.log('succes')
+    
   }
 })
 

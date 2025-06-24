@@ -11,10 +11,12 @@ export default defineEventHandler(async (event) => {
   if (email === data.email && await verifyPassword(data.password, password)) {
     // set the user session in the cookie
     // this server util is auto-imported by the auth-utils module
+
     await setUserSession(event, {
       user: {
         name: data.name,
-        role: data.role
+        role: data.role,
+        photo: data.photo
       }
     })
     return {}

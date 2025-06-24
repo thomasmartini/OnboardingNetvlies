@@ -26,7 +26,11 @@ export const User = defineMongooseModel({
       type: "number",
       default: 0,
       required: false,
-      
+    },
+    photo: {
+      type: "string",
+      default: "",
+      required: true
     }
   },
   options: {

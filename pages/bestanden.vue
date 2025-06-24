@@ -11,7 +11,7 @@ async function logout() {
 }
 </script>
 <template>
-    <div class="font-[family-name:circular]">
+    <div class="font-[family-name:circular] justify-items-center">
     <UContainer class="flex">
     <UContainer class="w-150 h-100">
         <div class="text-4xl">Eerste Dag</div>

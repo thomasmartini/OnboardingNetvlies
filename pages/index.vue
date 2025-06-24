@@ -12,7 +12,7 @@ const { user, clear: clearSession } = useUserSession()
     <div class="name row-span-2 self-center">{{ user.name }}</div>
     <div class="row-span-2 pr-35">
     <div class="profile-pic-wrapper justify-self-center mr-1.5">
-    <img src="https://www.netvlies.nl/sites/default/files/styles/twig_image_portrait_240_334/public/images/medewerkers/Pierre%20no%20bg_0.png?itok=SyBdDI2i" class="profile-pic">
+    <img :src="user.photo" class="profile-pic">
     </div>
     <div class="h-[74vh] overflow-auto no-scrollbar">
   <Timeline>
@@ -34,17 +34,6 @@ const { user, clear: clearSession } = useUserSession()
   <Timeline>
     <template #title>nieuwe title</template>
   </Timeline>
-  <Timeline>
-    <template #title>
-      Je eerste blik
-    </template>
-    <template #content>
-      klaar voor je eerste inzichten! Vernieuw je visie
-    </template>
-    <template #link>
-      <a href="/spongebob">Door naar de eerste onboarding module</a>
-    </template>
-  </Timeline> 
   </div>
 </div>
 </div>

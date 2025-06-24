@@ -84,8 +84,8 @@ async function onSubmit(event: FormSubmitEvent<Schema>){
   </UForm>
     </template>
   </UModal>
-    <section class="person-overview font-[family-name:circular] mt-4.5">
-        <div class="person-overview__list h-screen pb-25 overflow-scroll no-scrollbar grid grid-cols-4 gap-6 pl-25 pr-25">
+    <section class="person-overview font-[family-name:circular] mt-22.5">
+        <div class="person-overview__list h-[88vh] pb-20 overflow-scroll no-scrollbar grid grid-cols-4 gap-6 pl-25 pr-25">
 
     <div v-for="smoel in data.default" class="person-overview__item person-overview__item--1">
 
