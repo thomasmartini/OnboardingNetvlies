@@ -22,7 +22,7 @@ const submitFiles = async () => {
 }
 
 const schema = z.object({
-  email: z.string().email('Invalid email'),
+  email: z.string(),
   name: z.string(),
   role: z.string()
 })
@@ -40,7 +40,6 @@ async function deleteUser(id: string) {
 })
 await refreshNuxtData()
 toast.add({ title: 'Success', description: 'User Deleted', color: 'success' })
-
 }
 
 async function onSubmit(event: FormSubmitEvent<Schema>) {
@@ -58,6 +57,18 @@ async function onSubmit(event: FormSubmitEvent<Schema>) {
 await refreshNuxtData()
 toast.add({ title: 'Success', description: 'The form has been submitted.', color: 'success' })
 }
+async function updateUser(id:string){
+  const update = await $fetch(`/api/users/${id}`, {
+  method: 'PUT',
+  body:{
+    "email": state.email,
+    "name": state.name,
+    "role": state.role,
+    "photo": `_nuxt/assets/userFiles/${files.value[0].name}.jpg`,
+  }
+})
+refreshNuxtData()
+}
 </script>
 
 <template>
@@ -70,7 +81,7 @@ toast.add({ title: 'Success', description: 'The form has been submitted.', color
     <template #content>
     <UForm :schema="schema" :state="state" class="h-80 m-4" @submit="onSubmit">
     <UFormField label="Email" name="email">
-      <UInput v-model="state.email" />
+      <UInput v-model="state.email"/>
     </UFormField>
 
     <UFormField label="Name" name="Name">
@@ -109,7 +120,29 @@ toast.add({ title: 'Success', description: 'The form has been submitted.', color
       </div>
     </template>
         </UModal>
-        <button label="update user" class="text-warning" @click="updateUser(person._id)">Update</button>
+       
+            <UModal>
+     <button label="update user" class="text-warning">Update</button>
+
+    <template #content>
+    <UForm :schema="schema" :state="state" class="h-80 m-4" @submit="updateUser(person._id)">
+    <UFormField label="Email" name="email">
+      <UInput v-model="state.email"/>
+    </UFormField>
+
+    <UFormField label="Name" name="Name">
+      <UInput v-model="state.name"/>
+    </UFormField>
+    <UFormField label="Role">
+      <UInputMenu v-model="state.role" :items="items" />
+    </UFormField>
+    <UInput type="file" accept="image/jpeg" @input="handleFileInput" class="mt-5"/><br>
+    <UButton type="submit" class="mt-5">
+      Submit
+    </UButton>
+  </UForm>
+    </template>
+  </UModal>
       </div>
       <div class="flex">
       <div class="mr-11">{{person.progress}}/10</div>

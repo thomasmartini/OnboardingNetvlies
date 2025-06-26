@@ -14,7 +14,7 @@ const state = reactive<Partial<Schema>>({
   answer: undefined,
 })
 async function onSubmit(event: FormSubmitEvent<Schema>) {
-  if(event.data.answer == "Haven 19"){
+  if(event.data.answer == "haven 19"){
     toast.add({ title: 'Yes, goed gedaan!!', description: 'Je antwoord klopt!', color: 'success' })
   }
   else{

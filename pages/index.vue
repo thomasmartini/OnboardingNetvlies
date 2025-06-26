@@ -4,19 +4,19 @@ definePageMeta({
   layout: 'default',
   middleware: ['authenticated'],
 })
-
 const { user, clear: clearSession } = useUserSession()
 const data = await $fetch(`http://localhost:3000/api/users/${user.value.email}`)
 </script>
 <template>
   <UContainer>   
-  <div class="grid grid-flow-col grid-rows-2 font-[family-name:circular]">
-    <div class="name row-span-2 self-center">{{ user.name }}</div>
-    <div class="row-span-2 pr-35">
+  <div class="grid grid-flow-col grid-col-3 grid-rows-2 font-[family-name:circular]">
+    <div class="name row-span-1 col-span-1 col-start-1 self-center">Welkom {{user.name.split(" ")[0]}}</div>
+    <UCard class="row-span-2 col-span-2 col-start-1 self-center p-4">Welkom bij de onboarding van Netvlies. Rechts kan je een tijdlijn zien met allemaal onboarding modules. klik op de eerste en begin je Netvlies avontuur</UCard>
+    <div class="row-span-2 col-span-2 pr-35">
     <div class="profile-pic-wrapper justify-self-center mr-1.5">
     <img :src="user.photo" class="profile-pic">
     </div>
-    <div class="h-[74vh] overflow-auto no-scrollbar">
+    <div class="h-[74vh] overflow-auto no-scrollbar justify-self-start">
   <Timeline v-if="data.progress >= 0">
     <template #title>
       Eerste dag

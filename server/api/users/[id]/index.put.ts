@@ -19,7 +19,6 @@ if(!user) throw createError({
 })
 const body = await readBody(event)
 const newUser = await User.findByIdAndUpdate(id, body, {new: true})
-console.log(body)
 if (!newUser){
     throw createError({
         statusCode: 404,
