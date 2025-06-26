@@ -1,4 +1,7 @@
 <script setup lang="ts">
+definePageMeta({
+  middleware: ['authenticated'],
+})
 import { z } from 'zod'
 import type { FormSubmitEvent } from '@nuxt/ui'
 const toast = useToast()

@@ -8,7 +8,7 @@
             <img src="../assets/userFiles/dok2.jpg" class="w-100 rounded-xl"/>
             </div>
             <div class="flex justify-center mt-2">
-            <img src="../assets/userFiles/grote-kerk-dok-19-1024x730-2941974254.png" class="w-125 rounded-xl"/>
+            <img src="../assets/userFiles/images.jpeg" class="w-125 rounded-xl"/>
             </div>
             
             </div>

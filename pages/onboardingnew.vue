@@ -1,0 +1,4 @@
+<template>
+
+    <passiveOnboarding></passiveOnboarding>
+</template>

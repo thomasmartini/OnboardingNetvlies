@@ -1,7 +1,7 @@
 import { isMongoId } from "../../utils/isMongoId";
 
 export default defineEventHandler (async (event) =>{
-const id = getRouterParam(event, "id");
+const id = getRouterParam(event, "email");
 if(!id) throw createError({
 statusCode: 404,
 statusMessage: 'Not Found',
@@ -19,6 +19,7 @@ if(!user) throw createError({
 })
 const body = await readBody(event)
 const newUser = await User.findByIdAndUpdate(id, body, {new: true})
+console.log(body)
 if (!newUser){
     throw createError({
         statusCode: 404,

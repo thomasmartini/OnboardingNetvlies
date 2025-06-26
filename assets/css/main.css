@@ -13,7 +13,7 @@ input{
     height: 60px;
 }
 .topbar__text{
-    color: white;
+    color: black;
 }
 .person{
 -webkit-font-smoothing: antialiased;

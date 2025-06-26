@@ -98,7 +98,8 @@ toast.add({ title: 'Success', description: 'The form has been submitted.', color
       <div class="flex">
       <div class="ml-5 w-50">{{ person.name }}</div>
           <UModal>
-    <button label="delete user" class="text-error">Delete</button>
+    <button label="delete user" class="text-error mr-4">Delete</button>
+    
     <template #content>
       <div class="w-full h-30 justify-center flex flex-col items-center">
         <div class="text-error">Weet je zeker dat je deze gebruiker wilt verwijderen?</div>
@@ -108,9 +109,10 @@ toast.add({ title: 'Success', description: 'The form has been submitted.', color
       </div>
     </template>
         </UModal>
+        <button label="update user" class="text-warning" @click="updateUser(person._id)">Update</button>
       </div>
       <div class="flex">
-      <div class="mr-11">{{Math.ceil(Math.random() * 10)}}/10</div>
+      <div class="mr-11">{{person.progress}}/10</div>
       <div class="mr-5 w-8">{{ person.role }}</div>
       </div>
     </div>
