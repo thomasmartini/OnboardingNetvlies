@@ -73,3 +73,8 @@ bun run preview
 ```
 
 Check out the [deployment documentation](https://nuxt.com/docs/getting-started/deployment) for more information.
+
+Zet in de .env bestand het volgende
+
+MONGODB_URI = mongodb://localhost:27017/users
+mount = ./assets/
