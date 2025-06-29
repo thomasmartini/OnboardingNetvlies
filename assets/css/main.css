@@ -226,6 +226,7 @@ position: relative;
 .name{
     font-size: xxx-large;
     font-family: Circuclar, sans-serif;
+    color: #FF2364;
 }
 .profile-pic-wrapper { 
     width: 150px;

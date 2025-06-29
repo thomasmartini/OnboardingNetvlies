@@ -59,10 +59,10 @@ body {
 
 /* Container around content */
 .container {
-  padding: 0px 10px;
+
   position: relative;
   background-color: inherit;
-  width: 50%;
+  width: 80%;
 }
 
 /* The circles on the timeline */
@@ -130,7 +130,6 @@ body {
   left: 15px;
   }
   
-  /* Make all right containers behave like the left ones */
   .right {
   left: 0%;
   }

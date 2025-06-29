@@ -24,14 +24,16 @@ const submitFiles = async () => {
 const schema = z.object({
   email: z.string(),
   name: z.string(),
-  role: z.string()
+  role: z.string(),
+  password: z.string()
 })
 type Schema = z.output<typeof schema>
 
 const state = reactive<Partial<Schema>>({
   email: undefined,
   name: undefined,
-  role: undefined
+  role: undefined,
+  password: undefined
 })
 
 async function deleteUser(id: string) {
@@ -64,6 +66,7 @@ async function updateUser(id:string){
     "email": state.email,
     "name": state.name,
     "role": state.role,
+    "password": state.password,
     "photo": `_nuxt/assets/userFiles/${files.value[0].name}.jpg`,
   }
 })
@@ -130,8 +133,11 @@ refreshNuxtData()
       <UInput v-model="state.email"/>
     </UFormField>
 
-    <UFormField label="Name" name="Name">
+    <UFormField label="Name" name="name">
       <UInput v-model="state.name"/>
+    </UFormField>
+    <UFormField label="Password" name="password">
+      <UInput v-model="state.password"/>
     </UFormField>
     <UFormField label="Role">
       <UInputMenu v-model="state.role" :items="items" />

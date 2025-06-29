@@ -10,9 +10,9 @@ const data = await $fetch(`http://localhost:3000/api/users/${user.value.email}`)
 <template>
   <UContainer>   
   <div class="grid grid-flow-col grid-col-3 grid-rows-2 font-[family-name:circular]">
-    <div class="name row-span-1 col-span-1 col-start-1 self-center">Welkom {{user.name.split(" ")[0]}}</div>
+    <div class="name row-span-1 col-span-1 col-start-1 self-center font-black"><div class="text-black">Welkom</div> {{user.name.split(" ")[0]}}</div>
     <UCard class="row-span-2 col-span-2 col-start-1 self-center p-4">Welkom bij de onboarding van Netvlies. Rechts kan je een tijdlijn zien met allemaal onboarding modules. klik op de eerste en begin je Netvlies avontuur</UCard>
-    <div class="row-span-2 col-span-2 pr-35">
+    <div class="row-span-2 col-span-2">
     <div class="profile-pic-wrapper justify-self-center mr-1.5">
     <img :src="user.photo" class="profile-pic">
     </div>
