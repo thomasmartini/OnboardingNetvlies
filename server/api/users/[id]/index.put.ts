@@ -1,7 +1,7 @@
 import { isMongoId } from "../../utils/isMongoId";
 
 export default defineEventHandler (async (event) =>{
-const id = getRouterParam(event, "id");
+const id = getRouterParam(event, "email");
 if(!id) throw createError({
 statusCode: 404,
 statusMessage: 'Not Found',

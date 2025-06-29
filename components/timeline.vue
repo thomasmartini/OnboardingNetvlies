@@ -18,7 +18,7 @@ hieronder een voorbeeld van hoe dit component gebruikt kan worden in een .vue be
     <div class="content">
       <div class="text-4xl title"><slot name="title"> Roep "template #title" aan in het timeline blokje om dit aan te passen</slot></div>
       <p><slot name="content"> Roep "template #content" aan in het timeline blokje om dit aan te passen</slot></p>
-      <i class="link_timeline flex"><slot name="link">vul hier een a href met een link in </slot><UIcon name="i-lucide-arrow-right" class="size-5 mt-0.5"/></i>
+      <i class="link_timeline flex mt-3 mb-5"><slot name="link">vul hier een a href met een link in </slot><UIcon name="i-lucide-arrow-right" class="size-5 mt-0.5"/></i>
     </div>
   </div>
 </div>

@@ -22,7 +22,7 @@ const submitFiles = async () => {
 }
 
 const schema = z.object({
-  email: z.string().email('Invalid email'),
+  email: z.string(),
   name: z.string(),
   role: z.string()
 })
@@ -40,7 +40,6 @@ async function deleteUser(id: string) {
 })
 await refreshNuxtData()
 toast.add({ title: 'Success', description: 'User Deleted', color: 'success' })
-
 }
 
 async function onSubmit(event: FormSubmitEvent<Schema>) {
@@ -58,6 +57,18 @@ async function onSubmit(event: FormSubmitEvent<Schema>) {
 await refreshNuxtData()
 toast.add({ title: 'Success', description: 'The form has been submitted.', color: 'success' })
 }
+async function updateUser(id:string){
+  const update = await $fetch(`/api/users/${id}`, {
+  method: 'PUT',
+  body:{
+    "email": state.email,
+    "name": state.name,
+    "role": state.role,
+    "photo": `_nuxt/assets/userFiles/${files.value[0].name}.jpg`,
+  }
+})
+refreshNuxtData()
+}
 </script>
 
 <template>
@@ -70,7 +81,7 @@ toast.add({ title: 'Success', description: 'The form has been submitted.', color
     <template #content>
     <UForm :schema="schema" :state="state" class="h-80 m-4" @submit="onSubmit">
     <UFormField label="Email" name="email">
-      <UInput v-model="state.email" />
+      <UInput v-model="state.email"/>
     </UFormField>
 
     <UFormField label="Name" name="Name">
@@ -98,7 +109,8 @@ toast.add({ title: 'Success', description: 'The form has been submitted.', color
       <div class="flex">
       <div class="ml-5 w-50">{{ person.name }}</div>
           <UModal>
-    <button label="delete user" class="text-error">Delete</button>
+    <button label="delete user" class="text-error mr-4">Delete</button>
+    
     <template #content>
       <div class="w-full h-30 justify-center flex flex-col items-center">
         <div class="text-error">Weet je zeker dat je deze gebruiker wilt verwijderen?</div>
@@ -108,9 +120,32 @@ toast.add({ title: 'Success', description: 'The form has been submitted.', color
       </div>
     </template>
         </UModal>
+       
+            <UModal>
+     <button label="update user" class="text-warning">Update</button>
+
+    <template #content>
+    <UForm :schema="schema" :state="state" class="h-80 m-4" @submit="updateUser(person._id)">
+    <UFormField label="Email" name="email">
+      <UInput v-model="state.email"/>
+    </UFormField>
+
+    <UFormField label="Name" name="Name">
+      <UInput v-model="state.name"/>
+    </UFormField>
+    <UFormField label="Role">
+      <UInputMenu v-model="state.role" :items="items" />
+    </UFormField>
+    <UInput type="file" accept="image/jpeg" @input="handleFileInput" class="mt-5"/><br>
+    <UButton type="submit" class="mt-5">
+      Submit
+    </UButton>
+  </UForm>
+    </template>
+  </UModal>
       </div>
       <div class="flex">
-      <div class="mr-11">{{Math.ceil(Math.random() * 10)}}/10</div>
+      <div class="mr-11">{{person.progress}}/10</div>
       <div class="mr-5 w-8">{{ person.role }}</div>
       </div>
     </div>

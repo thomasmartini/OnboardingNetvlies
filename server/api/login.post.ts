@@ -1,3 +1,4 @@
+import { hostname } from 'os'
 import { z } from 'zod'
 
 const bodySchema = z.object({
@@ -6,7 +7,7 @@ const bodySchema = z.object({
 })
 export default defineEventHandler(async (event) => {
   const { email, password } = await readValidatedBody(event, bodySchema.parse)
-  const response = await fetch(`http://localhost:3000/api/users/${email}`)
+  const response = await fetch(`http://${getRequestHost(event)}/api/users/${email}`)
   const data = await response.json()
   if (email === data.email && await verifyPassword(data.password, password)) {
     // set the user session in the cookie
@@ -16,7 +17,8 @@ export default defineEventHandler(async (event) => {
       user: {
         name: data.name,
         role: data.role,
-        photo: data.photo
+        photo: data.photo,
+        email: data.email
       }
     })
     return {}
